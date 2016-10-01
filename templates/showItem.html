@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<html>
+	<h2>{{item.name}}</h2>
+	<h3>Description:</h3>
+	<p>{{item.description}}</p>
+	</br></br>
+	<div class="menu-item-links">
+		<a href='{{url_for('editItem', old_category_name=item.category.name, old_item_name=item.name) }}'>
+			<button class="btn btn-default edit">
+			<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Edit</button>
+		</a> &nbsp; 
+		<a href='{{url_for('deleteItem', category_name=item.category.name, item_name=item.name) }}'>
+			<button class="btn btn-default remove">
+			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+		</a>
+	</div>
+	</br>
+	<a href = '{{url_for('showAllItems')}}'>
+		<button class="btn btn-default return">
+		<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Return to main page</button>
+	</a>	
+</html>
+
+{% endblock %}

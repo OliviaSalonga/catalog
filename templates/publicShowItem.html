@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<html>
+	<h2>{{item.name}}</h2>
+	<h3>Description:</h3>  
+	<p>{{item.description}}</p>
+	</br></br>
+	<a href = '{{url_for('showAllItems')}}'>
+		<button class="btn btn-default return">
+		<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Return to main page</button>
+	</a>	
+</html>
+
+{% endblock %}

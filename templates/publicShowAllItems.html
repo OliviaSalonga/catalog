@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div id="main-list">
+		<div id="category-list">
+			<h2>Categories</h2>
+			{% for category in categories %}
+				<a href = '{{url_for('showCategory', category_name=category.name) }}' style="font-size:25px" >{{category.name}}</a>
+				</br>
+			{% endfor %}
+		</div>
+		<div id="item-list">
+			<h2>{{heading}}</h2>
+			{% for item in items %}
+				<a href ='{{url_for('showItem', category_name=item.category.name, item_name=item.name) }}' style="font-size:20px"> {{item.name}}</a>
+				<a href ='{{url_for('showCategory', category_name=item.category.name) }}' style="color:gray;"><i>  ({{item.category.name}})</i></a> 
+				</br>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
